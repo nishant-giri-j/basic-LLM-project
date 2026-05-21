@@ -27,8 +27,9 @@ interface = gr.Interface(
         ["The company reported a 20% increase in revenue this quarter, exceeding expectations."],
         ["Supply chain disruptions have caused a significant delay in product shipments, leading to a drop in stock price."],
         ["The market remains stable despite minor fluctuations in interest rates."]
-    ]
+    ],
+    cache_examples=False  # <-- Add this to stop Hugging Face from hanging on example generation
 )
 
 if __name__ == "__main__":
-    interface.launch()
+    interface.launch(ssr_mode=False)  # <-- Add ssr_mode=False to keep the engine standard and stable
